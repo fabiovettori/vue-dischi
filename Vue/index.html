@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Dischi</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://kit.fontawesome.com/efa78a0868.js" crossorigin="anonymous"></script>
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="style.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    </head>
+    <body>
+
+        <header></header>
+
+        <main>
+            <!-- vue container -->
+            <div id="root">
+                <section>
+                    <select class="" name="">
+
+                    </select>
+                </section>
+
+                <div class="discs-container">
+                    <div class="cds" v-for="disc in discs">
+                        <img :src="disc.poster" :alt="disc.title">
+                        <h2>Title: {{ disc.title }}</h2>
+                        <h2>Author: {{ disc.author }}</h2>
+                        <h2>Genre: {{ disc.genre }}</h2>
+                        <h2>Year: {{ disc.year }}</h2>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="main.js" charset="utf-8"></script>
+    </body>
+</html>
