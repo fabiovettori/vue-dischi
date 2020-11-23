@@ -22,13 +22,18 @@
             <!-- vue container -->
             <div id="root">
                 <section>
-                    <select class="" name="">
-
-                    </select>
+                    <div class="wrapper">
+                        <select class="" name="" @change="onChange($event)">
+                            <option value="All genres" selected="selected">All genres</option>
+                            <option :value="genre" v-for="(genre, i) in genres">
+                                {{ genre }}
+                            </option>
+                        </select>
+                    </div>
                 </section>
 
                 <div class="discs-container">
-                    <div class="cds" v-for="disc in discs">
+                    <div class="cds" v-for="disc in discs" :class="(disc.genre == genreType || genreType == 'All genres') ? 'active' : 'null'">
                         <img :src="disc.poster" :alt="disc.title">
                         <h2>Title: {{ disc.title }}</h2>
                         <h2>Author: {{ disc.author }}</h2>

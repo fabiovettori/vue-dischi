@@ -2,13 +2,11 @@ var app = new Vue({
     el: '#root',
     data: {
         discs: [],
-        genre: []
+        genres: [],
+        genreType: 'All genres'
     },
     mounted: function(){
-        this.ajax(),
-        Vue.nextTick(function(){
-            app.test()
-        })
+        this.ajax()
     },
     methods: {
         ajax: function(){
@@ -18,10 +16,21 @@ var app = new Vue({
                 // console.log(answer.data.response);
                 self.discs = answer.data.response;
                 // console.log(self.discs);
+
+                self.discs.forEach((disc, i) => {
+                    let genre = disc.genre;
+                    // console.log(genre);
+
+                    if (!self.genres.includes(genre)) {
+                        self.genres.push(genre)
+                    }
+                });
+                // console.log(self.genres);
             })
         },
-        test: function(){
-            console.log(this.discs);
+        onChange: function(event){
+            this.genreType = event.target.value;
         }
+
     }
 });
